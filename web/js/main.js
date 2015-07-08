@@ -2,7 +2,7 @@
 //todo:jquery化したい
 
 function registTone(tone) {
-    var href = "https://guarded-thicket-2913.herokuapp.com/regist/" + tone;
+    var href = "/regist/" + tone;
     if (tone !== "") {
         var ret = confirm(tone + "を登録するよ");
         if (ret === true) {
