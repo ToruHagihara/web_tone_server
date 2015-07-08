@@ -19,7 +19,12 @@ $app->register(new Silex\Provider\TwigServiceProvider(), array(
 
 $app->get('/', function() use($app) {
   $app['monolog']->addDebug('logging output.');
-  return 'Hello world';
+    return $app['twig']->render('index.twig');
+});
+
+//front ui
+$app->get('/front/', function () use ($app) {
+    return $app['twig']->render('index.twig');
 });
 
 //echo tone
@@ -27,7 +32,7 @@ $app->get('/echo/{tone}', function ($tone) use ($app)  {
     return $app['twig']->render('echo_tone.twig', array(
         'tone' => $tone,
     ));
-    
+
 });
 
 //
@@ -44,7 +49,7 @@ $app->get('/regist/{tone}', function ($tone) use ($app)  {
         'id' => $arr[0],
         'tone' => $tone,
     ));
-    
+
 });
 
 //delete all tones in table
@@ -52,25 +57,14 @@ $app->get('/delete/', function () use ($app)  {
     $_con= getDBConnection();
     $sqlresult = pg_query($_con, "DELETE FROM tones");
     pg_close($_con);
-    
+
         return $app['twig']->render('echo_tone.twig', array(
         'tone' => 'all tone deleted',
     ));
 });
 
-//delete a tone with minimum id in tones table
-$app->get('/delete/firsttone/', function () use ($app)  {
-    $_con= getDBConnection();
-    $sqlresult = pg_query($_con, "DELETE FROM tones WHERE id=(SELECT MIN(id) from tones) ");
-    pg_close($_con);
-    
-        return $app['twig']->render('echo_tone.twig', array(
-        'tone' => 'first tone deleted',
-    ));
-});
-
 //get tone list
-$app->get('/get/tonelist/', function () use ($app) {  
+$app->get('/get/tonelist/', function () use ($app) {
 
     $result;
     $_con= getDBConnection();
@@ -80,17 +74,17 @@ $app->get('/get/tonelist/', function () use ($app) {
         exit;
     }
     $arr = pg_fetch_all_columns($sqlresult, 1);
-    
+
     pg_close($_con);
-          
+
     return $app['twig']->render('echo_tone.twig', array(
         'tone' => implode(",", $arr),
-    ));    
+    ));
 });
 
 
 //get tone list as json
-$app->get('/get/tonelist/json/', function () use ($app) {  
+$app->get('/get/tonelist/json/', function () use ($app) {
 
     $result;
     $_con= getDBConnection();
@@ -102,74 +96,8 @@ $app->get('/get/tonelist/json/', function () use ($app) {
     }
     $arr = pg_fetch_all ($sqlresult);
     pg_close($_con);
-          
+
     return $app->json($arr, 200);
-});
-
-
-//get first tone
-$app->get('/get/firsttone/', function () use ($app) {  
-
-    $result;
-    $_con= getDBConnection();
-    $sqlresult = pg_query($_con, "SELECT * FROM tones WHERE id=(SELECT MIN(id) from tones)");
-
-    if (!$sqlresult) {
-        echo "An error occurred.\n";
-        exit;
-    }
-    $arr = pg_fetch_all_columns($sqlresult, 1);
-    
-    pg_close($_con);
-          
-    return $app['twig']->render('echo_tone.twig', array(
-        'tone' => implode($arr),
-    ));    
-});
-
-//view tone in table
-$app->get('/front/', function () use ($app) {  
-
-    $result;
-    $_con= getDBConnection();
-    if (!$_con) {
-        $result='fail';
-    }else{
-        $result='success yeah!';
-    }
-    
-    $sqlresult = pg_query($_con, "SELECT * FROM tones");
-    if (!$sqlresult) {
-        echo "An error occurred.\n";
-        exit;
-    }
-    $arr = pg_fetch_all_columns($sqlresult, 1);
-    
-    
-    pg_close($_con);
-          
-    return $app['twig']->render('index.twig', array(
-        'name' => implode(",", $arr),
-    ));
-});
-
-
-//delete all tones in table
-$app->get('/play/', function () use ($app)  {
-    $result;
-    $_con= getDBConnection();
-    $sqlresult = pg_query($_con, "SELECT * FROM tones WHERE id=(SELECT MIN(id) from tones)");
-    if (!$sqlresult) {
-        echo "An error occurred.\n";
-        exit;
-    }
-    $arr = pg_fetch_all_columns($sqlresult, 1);
-    
-    pg_close($_con);
-          
-    return $app['twig']->render('player.twig', array(
-        'tone' => implode($arr),
-    )); 
 });
 
 $app->run();
@@ -181,7 +109,7 @@ function getDBConnection(){
     $dbPort = $dbUrl['port'];
     $dbUser = $dbUrl['user'];
     $dbPass = $dbUrl['pass'];
-    
+
     $conn = "host=". $dbHost. " dbname=". $dbName . " user=" .$dbUser . " password=". $dbPass;
     return pg_connect($conn);
 }
