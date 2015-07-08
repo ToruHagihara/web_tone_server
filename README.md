@@ -19,6 +19,7 @@ http://fabble.cc/toruhagihara/web-connected-orgel
 
 #Sample
 JSON形式で取得するには以下のURLを指定します。
+デプロイしたアプリケーション名が"deploy-url-nnnn"の場合
 https://deploy-url-nnnn.herokuapp.com/get/tonelist/json/
 ->
 [{"id":"1","tone":"1232123"}]
