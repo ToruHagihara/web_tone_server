@@ -1,0 +1,48 @@
+body	{
+	background-color: #333;
+}
+
+#title {
+	padding:5px 0px 5px 10px;
+	background-color:#555;
+   color:#FFF;
+}
+
+#credit{
+	padding:5px 0px 5px 10px;
+	font-size:50%;
+	color:#FFF;
+	background-color:#111;
+}
+
+.base {
+    color:#FFF;
+}
+
+.tone-btn {
+	height:80px;
+	width:30px;
+	padding:0px;
+	margin:0px;
+	background-color: #FFF;
+	color:#111;
+}
+
+#toneTxt{
+	background-color:#EEE;
+	color:#111;
+	width:142px;
+	height:38px;
+}
+
+#registBtn,#clearBtn {
+	width: 60px;
+	height: 38px;
+	background: #EEE;
+	border: 1px solid #DDD;
+	border-radius: 35px;
+	-moz-border-radius: 35px;
+	-webkit-border-radius: 35px;
+	color: #111;
+	padding: 10px;
+}
