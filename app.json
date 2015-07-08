@@ -2,4 +2,7 @@
   "name": "Web tone player",
   "description": "web tone player server",
   "repository": "https://github.com/ToruHagihara/web_tone_server"
+   "addons": [
+    "heroku-postgresql"
+  ]
 }
