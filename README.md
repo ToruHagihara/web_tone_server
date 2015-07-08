@@ -14,7 +14,7 @@ http://fabble.cc/toruhagihara/web-connected-orgel
 /get/tonelist/json
 登録されているメロディ一覧をJSON形式で取得する。
 
-/delete/
+/delete
 登録されているメロディをすべて削除する。
 
 #Sample
