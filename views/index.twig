@@ -1,44 +1,44 @@
 <html lang="ja">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
-    <script src="{{ app.request.basepath }}/js/jquery-2.1.4.js"></script>
-    <script src="{{ app.request.basepath }}/js/timbre.js"></script>
-    <script src="{{ app.request.basepath }}/js/main.js"></script>
-    <link rel="stylesheet" type="text/css" href="/css/main.css">
-    <title>♪Web Tone♪</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+	<script src="{{ app.request.basepath }}/js/jquery-2.1.4.js"></script>
+	<script src="{{ app.request.basepath }}/js/timbre.js"></script>
+	<script src="{{ app.request.basepath }}/js/main.js"></script>
+	<link rel="stylesheet" type="text/css" href="/css/main.css">
+	<title>♪Web Tone♪</title>
 </head>
 
 <body>
-    <p id="title">
-        トーンをオルゴールに登録しよう♪
-    </p>
-    <div id="box">
-        <form id="registForm">
-            <p>
-                <input type="text" name="tone" id="toneTxt" enable="false">
-                <input type="button" name="regist" id="registBtn" value="登録" onClick="registTone()">
-                <input type="button" name="clear" id="clearBtn" value="消す" onClick="clearTone()">
-            </p>
-        </form>
+	<p id="title">
+		トーンをオルゴールに登録しよう♪
+	</p>
+	<div id="box">
+		<form id="registForm">
+			<p>
+				<input type="text" name="tone" id="toneTxt" enable="false">
+				<input type="button" name="regist" id="registBtn" value="登録" onClick="registTone()">
+				<input type="button" name="clear" id="clearBtn" value="消す" onClick="clearTone()">
+			</p>
+		</form>
 
-        <p id="keyboard">
-            <!--<button class="play-btn" id="playBtn">Play sound</button> -->
-            <!--<button class="stop-btn" id="stopBtn">Stop sound</button> -->
-            <button class="tone-btn" id="tone1">ド</button>
-            <button class="tone-btn" id="tone2">レ</button>
-            <button class="tone-btn" id="tone3">ミ</button>
-            <button class="tone-btn" id="tone4">ファ</button>
-            <button class="tone-btn" id="tone5">ソ</button>
-            <button class="tone-btn" id="tone6">ラ</button>
-            <button class="tone-btn" id="tone7">シ</button>
-            <button class="tone-btn" id="tone8">ド</button>
-            <button class="tone-btn" id="tone9">_</button>
-        </p>
-    </div>
-    <p id="credit">Web Tone ~みんなで鳴らすオルゴール~</p>
-    <script type="text/javascript" src="{{ app.request.basepath }}/js/index.js"></script>
+		<p id="keyboard">
+			<!--<button class="play-btn" id="playBtn">Play sound</button> -->
+			<!--<button class="stop-btn" id="stopBtn">Stop sound</button> -->
+			<button class="tone-btn" id="tone1">ド</button>
+			<button class="tone-btn" id="tone2">レ</button>
+			<button class="tone-btn" id="tone3">ミ</button>
+			<button class="tone-btn" id="tone4">ファ</button>
+			<button class="tone-btn" id="tone5">ソ</button>
+			<button class="tone-btn" id="tone6">ラ</button>
+			<button class="tone-btn" id="tone7">シ</button>
+			<button class="tone-btn" id="tone8">ド</button>
+			<button class="tone-btn" id="tone9">_</button>
+		</p>
+	</div>
+	<p id="credit">Web Tone ~みんなで鳴らすオルゴール~</p>
+	<script type="text/javascript" src="{{ app.request.basepath }}/js/index.js"></script>
 </body>
 
 </html>
