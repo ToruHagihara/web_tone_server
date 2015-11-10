@@ -1,24 +1,23 @@
-        {% block javascripts %}
-            <script src="{{ app.request.basepath }}/js/jquery-2.1.4.js"></script>
-            <script src="{{ app.request.basepath }}/js/timbre.js"></script>
-        {% endblock %}
+{% block javascripts %}
+<script src="{{ app.request.basepath }}/js/jquery-2.1.4.js"></script>
+<script src="{{ app.request.basepath }}/js/timbre.js"></script>
+{% endblock %}
 <form>
 
+	<p>トーン
+		<input enable="false" id="toneTxt" name="tone" type="text" value="{{tone}}">
 
-    <p>トーン
-        <input type="text" name="tone" id="toneTxt" enable="false" value="{{tone}}">
-        
-    </p>
-    
+	</p>
+
 </form>
 
-        <p>
-            <button class="play-btn" id="playBtn">トーンを再生</button>
-            <button class="stop-btn" id="stopBtn">停止</button>
+<p>
+	<button class="play-btn" id="playBtn">トーンを再生</button>
+	<button class="stop-btn" id="stopBtn">停止</button>
 
 </p>
 
-            <!--<button class="play-btn" id="playBtn">Play sound</button> -->
-            <!--<button class="stop-btn" id="stopBtn">Stop sound</button> -->
+<!--<button class="play-btn" id="playBtn">Play sound</button> -->
+<!--<button class="stop-btn" id="stopBtn">Stop sound</button> -->
 
-<script type="text/javascript" src="{{ app.request.basepath }}/js/index.js"></script>
+<script src="{{ app.request.basepath }}/js/index.js" type="text/javascript"></script>
